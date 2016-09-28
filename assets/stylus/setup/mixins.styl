@@ -1,0 +1,37 @@
+clearfix()
+    &:before
+    &:after
+        content: " ";
+        display: table;
+
+    &:after
+        clear: both;
+        
+/*##################################################################################
+    BUTTON MIXIN
+##################################################################################*/
+
+//Make a new button style
+button-variant($color, $background, $border)
+    color $color
+    background-color $background
+    border-color $border
+    
+    &:hover
+    &:active
+        background darken($background, 10%)
+        border-color darken($border, 10%)
+
+
+//Make a new bordered button with no background        
+button-outline-variant($color, $border)
+    background transparent
+    box-shadow none
+    color $color
+    border-color $border
+    
+    &:hover
+    &:active
+        background transparent
+        color darken($color, 10%)
+        border-color darken($border, 10%)
