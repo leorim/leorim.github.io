@@ -13,8 +13,11 @@
             display block
                 
         &.active
-            button-variant($white, $brand-action, $gray-dark)
+            button-variant($white, $brand-action, $brand-action)
             font-weight $font-weight-bold
+            
+            + a
+                border-left-color $brand-action
         
         &.disabled
             background $gray-light

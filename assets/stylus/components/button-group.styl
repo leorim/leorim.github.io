@@ -17,11 +17,18 @@
             border-top-right-radius $radius-base
             border-bottom-right-radius $radius-base
             
+    input
+            
+        &:hover
+        
+            + .button
+                border-left-color $input-border-color-hover
+
+        &:focus
+        
+            + .button
+                border-left-color $brand-action
+            
     .button
     a
         flex-shrink 0
-            
-    input:focus
-        
-        ~ .button
-            border-left-color $brand-action
