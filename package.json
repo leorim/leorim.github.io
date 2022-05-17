@@ -1,9 +1,0 @@
-{
-  "name": "Ignition Digital CSS Framework",
-  "version": "0.1.0",
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^3.0.4",
-    "grunt-contrib-stylus": "^1.2.0"
-  }
-}
