@@ -1,0 +1,35 @@
+$font-size-base:     16px;
+$spacer:             1rem;
+$backgroundGradient: linear-gradient(
+    135deg,
+    rgba(255, 255, 196, 1.000) 0.000%,
+    rgba(255, 97, 100, 1.000) 50.000%,
+    rgba(176, 0, 18, 1.000) 100.000%
+);
+
+html {
+    font-size: $font-size-base;
+}
+
+body {
+    margin: 0;
+    padding: 0 $spacer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #000000;
+    color: #FFFFFF;
+    font-family: "KoHo", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.hello {
+    margin: $spacer 0;
+    font-size: clamp(#{$spacer * 3}, 20vw, #{$spacer * 30});
+    background: $backgroundGradient;
+    background-clip: text;
+    color: transparent;
+}
