@@ -1,5 +1,6 @@
 ---
 import '../styles/styles.scss';
+import CopyButton from '../components/CopyButton';
 ---
 
 <html lang="en">
@@ -10,12 +11,17 @@ import '../styles/styles.scss';
         <meta name="generator" content={Astro.generator} />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
         <title>Rimmer.co</title>
     </head>
     <style>
     </style>
     <body>
-        <h1 class="hello">Hello</h1>
+        <div class="card">
+            <h1>Leo Rimmer</h1>
+            <p>Visual/product designer and front-end developer</p>
+            <p>Currently working at <a href="https://petdirect.co.nz/">Petdirect</a></p>
+            <CopyButton client:load />
+        </div>
     </body>
 </html>
