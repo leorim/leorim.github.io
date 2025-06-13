@@ -3,6 +3,7 @@ import { Card, Col, Container, Row, Stack } from 'react-bootstrap';
 import { RiExternalLinkLine } from '@remixicon/react'
 import '../styles/styles.scss';
 import CopyButton from '../components/CopyButton';
+import Credits from '../components/Credits';
 
 const name = "Leo Rimmer";
 const role = "Visual/product designer and front-end developer";
@@ -20,7 +21,7 @@ const role = "Visual/product designer and front-end developer";
     </style>
     <body>
         <Container>
-            <Row>
+            <Row className="g-3">
                 <Col
                     xs={12}
                     md={{offset: 2, span: 8}}
@@ -39,6 +40,7 @@ const role = "Visual/product designer and front-end developer";
                                     as="a"
                                     href="https://petdirect.co.nz/"
                                     target="_blank"
+                                    gap={1}
                                 >
                                     <span>Petdirect</span>
                                     <RiExternalLinkLine />
@@ -47,6 +49,9 @@ const role = "Visual/product designer and front-end developer";
                             <CopyButton client:load />
                         </Card.Body>
                     </Card>
+                </Col>
+                <Col xs={12} className="text-center">
+                    <Credits client:visible />
                 </Col>
             </Row>
         </Container>

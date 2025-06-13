@@ -17,6 +17,8 @@ $prefix: 'lr-';
 @import "bootstrap/scss/transitions";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/card";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/offcanvas";
 @import "bootstrap/scss/toasts";
 
 body {
@@ -25,4 +27,5 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: #F7F7F7;
 }
