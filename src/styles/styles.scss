@@ -14,8 +14,10 @@ $prefix: 'lr-';
 @import "bootstrap/scss/grid";
 @import "bootstrap/scss/helpers";
 @import "bootstrap/scss/utilities/api";
+@import "bootstrap/scss/transitions";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/card";
+@import "bootstrap/scss/toasts";
 
 body {
     min-height: 100vh;
