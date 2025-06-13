@@ -1,33 +1,26 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    box-sizing: border-box;
-}
+$prefix: 'lr-';
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities/api";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/card";
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    background: rgb(240,240,240);
-    padding: 1rem;
-}
-
-.card {
-    background: #FFFFFF;
-    box-shadow: rgba(10, 10, 10, 0.06) 0px 1.2px 1.2px 0px, rgba(10, 10, 10, 0.04) 0px 5px 10px 0px;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    width: 100%;
-    max-width: 560px;
-    
-    h1 {
-        margin: 0 0 1rem;
-    }
 }
