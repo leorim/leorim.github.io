@@ -1,10 +1,6 @@
 ---
-import {
-    Card,
-    Col,
-    Container,
-    Row
-} from 'react-bootstrap';
+import { Card, Col, Container, Row, Stack } from 'react-bootstrap';
+import { RiExternalLinkLine } from '@remixicon/react'
 import '../styles/styles.scss';
 import CopyButton from '../components/CopyButton';
 
@@ -18,20 +14,35 @@ const role = "Visual/product designer and front-end developer";
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{name} · {role}</title>
+        <title>{name} &bull; {role}</title>
     </head>
     <style>
     </style>
     <body>
         <Container>
             <Row>
-                <Col xs={12} lg={{offset: 3, span: 6}}>
+                <Col
+                    xs={12}
+                    md={{offset: 2, span: 8}}
+                    lg={{offset: 3, span: 6}}
+                    xl={{offset: 4, span: 4}}
+                >
                     <Card>
                         <Card.Body>
                             <Card.Title>{name}</Card.Title>
                             <p>
                                 {role}.
-                                Currently working at <a href="https://petdirect.co.nz/">Petdirect</a>.
+                                Currently working at
+                                <Stack
+                                    className="d-inline-flex"
+                                    direction="horizontal"
+                                    as="a"
+                                    href="https://petdirect.co.nz/"
+                                    target="_blank"
+                                >
+                                    <span>Petdirect</span>
+                                    <RiExternalLinkLine />
+                                </Stack>.
                             </p>
                             <CopyButton client:load />
                         </Card.Body>

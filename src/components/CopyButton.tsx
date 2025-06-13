@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useCopyToClipboard } from 'usehooks-ts';
 import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
+import { RiFileCopyLine, RiCheckLine } from '@remixicon/react'
 
 enum ButtonStates {
     initial = 'Copy email',
@@ -34,10 +36,18 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
     return (
         <Button
             {...props}
+            variant={buttonState === ButtonStates.copied ? 'success' : 'primary'}
             disabled={buttonState === ButtonStates.copied}
             onClick={handleCopy}
         >
-            {buttonState}
+            <Stack direction="horizontal" gap={2}>
+                {buttonState === ButtonStates.copied ? (
+                    <RiCheckLine />
+                ) : (
+                    <RiFileCopyLine />
+                )}
+                <span>{buttonState}</span>
+            </Stack>
         </Button>
     );
 }
