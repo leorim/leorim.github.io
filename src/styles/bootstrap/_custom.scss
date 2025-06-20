@@ -15,18 +15,22 @@ $black:    #000000;
 
 $purple: #641FF1;
 $green:  #00B088;
+$red:    #D70000;
 
 $colors: (
 	"purple": $purple,
-	"green":  $green
+	"green":  $green,
+	"red":    $red
 );
 
 $primary: $purple;
 $success: $green;
+$danger:  $red;
 
 $theme-colors: (
 	"primary": $primary,
-	"success": $success
+	"success": $success,
+	"danger":  $danger
 );
 
 
