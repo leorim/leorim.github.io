@@ -1,5 +1,5 @@
 ---
-import { Card, Col, Container, Row, Stack } from 'react-bootstrap';
+import { Col, Container, Row, Stack } from 'react-bootstrap';
 import { RiExternalLinkLine } from '@remixicon/react'
 import '../styles/styles.scss';
 import CopyButton from '../components/CopyButton';
@@ -28,27 +28,23 @@ const role: string = "Visual/product designer and front-end developer";
                     lg={{offset: 3, span: 6}}
                     xl={{offset: 4, span: 4}}
                 >
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>{name}</Card.Title>
-                            <p>
-                                {role}.
-                                Currently working at
-                                <Stack
-                                    className="d-inline-flex"
-                                    direction="horizontal"
-                                    as="a"
-                                    href="https://petdirect.co.nz/"
-                                    target="_blank"
-                                    gap={1}
-                                >
-                                    <span>Petdirect</span>
-                                    <RiExternalLinkLine />
-                                </Stack>.
-                            </p>
-                            <CopyButton client:load />
-                        </Card.Body>
-                    </Card>
+                    <h1>{name}</h1>
+                    <p>
+                        {role}.
+                        Currently working at
+                        <Stack
+                            className="d-inline-flex"
+                            direction="horizontal"
+                            as="a"
+                            href="https://petdirect.co.nz/"
+                            target="_blank"
+                            gap={1}
+                        >
+                            <span>Petdirect</span>
+                            <RiExternalLinkLine />
+                        </Stack>.
+                    </p>
+                    <CopyButton client:load />
                 </Col>
                 <Col xs={12} className="text-center">
                     <Credits client:visible />
