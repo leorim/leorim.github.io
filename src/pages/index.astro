@@ -1,55 +1,38 @@
 ---
-import { Col, Container, Row, Stack } from 'react-bootstrap';
+import { Col, Row, Stack } from 'react-bootstrap';
 import { RiExternalLinkLine } from '@remixicon/react'
-import '../styles/styles.scss';
+import Base from '../layouts/Base.astro';
 import CopyButton from '../components/CopyButton';
-import Credits from '../components/Credits';
 
 const name: string = "Leo Rimmer";
 const role: string = "Visual/product designer and front-end developer";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{name} &bull; {role}</title>
-    </head>
-    <style>
-    </style>
-    <body>
-        <Container>
-            <Row className="g-3">
-                <Col
-                    xs={12}
-                    md={{offset: 2, span: 8}}
-                    lg={{offset: 3, span: 6}}
-                    xl={{offset: 4, span: 4}}
+<Base title={`${name} • ${role}`}>
+    <Row className="g-3">
+        <Col
+            xs={12}
+            md={{offset: 2, span: 8}}
+            lg={{offset: 3, span: 6}}
+            xl={{offset: 4, span: 4}}
+        >
+            <h1>{name}</h1>
+            <p>
+                {role}.
+                Currently working at
+                <Stack
+                    className="d-inline-flex"
+                    direction="horizontal"
+                    as="a"
+                    href="https://petdirect.co.nz/"
+                    target="_blank"
+                    gap={1}
                 >
-                    <h1>{name}</h1>
-                    <p>
-                        {role}.
-                        Currently working at
-                        <Stack
-                            className="d-inline-flex"
-                            direction="horizontal"
-                            as="a"
-                            href="https://petdirect.co.nz/"
-                            target="_blank"
-                            gap={1}
-                        >
-                            <span>Petdirect</span>
-                            <RiExternalLinkLine />
-                        </Stack>.
-                    </p>
-                    <CopyButton client:load />
-                </Col>
-                <Col xs={12} className="text-center">
-                    <Credits client:visible />
-                </Col>
-            </Row>
-        </Container>
-    </body>
-</html>
+                    <span>Petdirect</span>
+                    <RiExternalLinkLine />
+                </Stack>.
+            </p>
+            <CopyButton client:load />
+        </Col>
+    </Row>
+</Base>
