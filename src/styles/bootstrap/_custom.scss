@@ -56,8 +56,14 @@ $border-radius-lg: $spacer;
 
 $font-family-sans-serif: "Inter", sans-serif;
 
-$font-size-base:         1rem * 1.125;
+$font-size-base:         1rem;
 $font-size-lg:           $font-size-base * 1.25;
+
+$display-font-weight:    900;
+$display-line-height:    calc(80/48);
+
+$lead-font-size:         $font-size-base * 1.5;
+$lead-font-weight:       300;
 
 
 // Close
