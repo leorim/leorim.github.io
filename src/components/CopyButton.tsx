@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useCopyToClipboard } from 'usehooks-ts';
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 import Toast from 'react-bootstrap/Toast';
@@ -25,6 +26,10 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
     const [copiedText, copy] = useCopyToClipboard();
     const [buttonState, setButtonState] = useState<ButtonStates>(ButtonStates.initial);
     const [toast, setToast] = useState<ToastProps|null>(null);
+    const [contentWidth, setContentWidth] = useState<number | undefined>(undefined);
+    const initialRef = useRef<HTMLDivElement>(null);
+    const copiedRef = useRef<HTMLDivElement>(null);
+    const currentRef = buttonState === ButtonStates.copied ? copiedRef : initialRef;
 
     const handleCopy = () => {
         copy('leo@rimmer.co')
@@ -53,23 +58,47 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
             return () => clearTimeout(timer);
         }
     }, [buttonState]);
+    
+    useEffect(() => {
+        if (initialRef.current) {
+            setContentWidth(initialRef.current.offsetWidth);
+        }
+    }, []);
 
     return (
         <React.Fragment>
             <Button
                 {...props}
+                className="copy-button"
                 variant={buttonState === ButtonStates.copied ? 'success' : 'primary'}
                 disabled={buttonState === ButtonStates.copied}
                 onClick={handleCopy}
             >
-                <Stack direction="horizontal" gap={2}>
-                    {buttonState === ButtonStates.copied ? (
-                        <RiCheckboxCircleLine />
-                    ) : (
-                        <RiFileCopyLine />
-                    )}
-                    <span>{buttonState}</span>
-                </Stack>
+                <SwitchTransition mode="out-in">
+                    <CSSTransition
+                        key={buttonState === ButtonStates.copied ? 'state2' : 'state1'}
+                        timeout={250}
+                        classNames="slide"
+                        nodeRef={currentRef}
+                    >
+                        <Stack
+                            ref={currentRef}
+                            className="justify-content-center"
+                            direction="horizontal"
+                            gap={2}
+                            style={{
+                                width: contentWidth ? `${contentWidth}px` : 'auto'
+                            }}
+                        >
+                            {buttonState === ButtonStates.copied ? (
+                                <RiCheckboxCircleLine />
+                            ) : (
+                                <RiFileCopyLine />
+                            )}
+                            <span>{buttonState}</span>
+                        </Stack>
+                    </CSSTransition>
+                </SwitchTransition>
             </Button>
             <ToastContainer
                 containerPosition="fixed"
