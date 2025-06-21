@@ -36,7 +36,9 @@ $theme-colors: (
 
 // Options
 
-$prefix: 'lr-';
+$prefix:         'lr-';
+$enable-shadows: true;
+$spacer:         1rem;
 
 
 // Links
@@ -44,9 +46,18 @@ $prefix: 'lr-';
 $link-color: $primary;
 
 
+// Components
+
+$border-radius:    $spacer * .5;
+$border-radius-lg: $spacer;
+
+
 // Typography
 
 $font-family-sans-serif: "Inter", sans-serif;
+
+$font-size-base:         1rem * 1.125;
+$font-size-lg:           $font-size-base * 1.25;
 
 
 // Close

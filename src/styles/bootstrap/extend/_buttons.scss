@@ -1,1 +1,73 @@
+$btn-padding-y-lg:     $spacer;
+$btn-padding-x-lg:     $spacer * 2;
+
+$btn-font-weight:       $font-weight-bold;
+$btn-font-size-lg:      $font-size-base;
+$btn-line-height:       calc(24/18);
+
+$btn-border-width:      0;
+
+$btn-box-shadow:        var(--#{$prefix}btn-shadow-one-spread) rgba($black, var(--#{$prefix}btn-shadow-one-opacity)),
+                        var(--#{$prefix}btn-shadow-two-spread) rgba($black, var(--#{$prefix}btn-shadow-two-opacity)),
+                        var(--#{$prefix}btn-glow-spread) hsl(from var(--#{$prefix}btn-bg) h s l / var(--#{$prefix}btn-glow-opacity)),
+						inset var(--#{$prefix}btn-inner-shadow-spread) hsl(from var(--#{$prefix}btn-inner-shadow-color) h s l / var(--#{$prefix}btn-inner-shadow-opacity)),
+						inset 0 0 0 map-get($border-widths, 2) rgba($white, .4);
+$btn-focus-box-shadow:  $btn-box-shadow;
+$btn-active-box-shadow: $btn-box-shadow;
+
 @import "bootstrap/scss/buttons";
+
+.btn {
+	--#{$prefix}btn-shadow-one-spread: 0 2px 8px 0;
+	--#{$prefix}btn-shadow-one-opacity: 0.4;
+	--#{$prefix}btn-shadow-two-spread: 0 0 24px 0;
+	--#{$prefix}btn-shadow-two-opacity: 0.24;
+	--#{$prefix}btn-glow-spread: 0 16px 32px 0;
+	--#{$prefix}btn-glow-opacity: 0.16;
+	--#{$prefix}btn-inner-shadow-color: #{$white};
+	--#{$prefix}btn-inner-shadow-spread: 0 0 24px 0;
+	--#{$prefix}btn-inner-shadow-opacity: 0.4;
+	--#{$prefix}btn-icon-color: hsl(from var(--#{$prefix}btn-color) h s l / .6);
+	--#{$prefix}btn-border-color: red;
+	position: relative;
+	border-color: transparent;
+	
+	&:hover {
+		--#{$prefix}btn-shadow-one-spread: 0 1px 4px 0;
+		--#{$prefix}btn-shadow-one-opacity: 0.48;
+		--#{$prefix}btn-shadow-two-spread: 0 0 12px 0;
+		--#{$prefix}btn-shadow-two-opacity: 0.32;
+		--#{$prefix}btn-glow-opacity: 0.48;
+		--#{$prefix}btn-glow-spread: 0 8px 16px 0;
+		--#{$prefix}btn-icon-color: var(--#{$prefix}btn-color);
+	}
+	
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		border-radius: var(--#{$prefix}btn-border-radius);
+		border: 2px solid transparent;
+		mask: /* mask inside the button */
+			linear-gradient(#000 0 0) padding-box, 
+			linear-gradient(#000 0 0);
+		mask-composite: exclude;
+		mix-blend-mode: overlay;
+	}
+	
+	&::before {
+		background: linear-gradient(135deg, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.00) 25%) border-box;
+	}
+	
+	&::after {
+		background: linear-gradient(-45deg, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.00) 25%) border-box;
+	}
+	
+	.remixicon {
+		color: var(--#{$prefix}btn-icon-color);
+	}
+}
