@@ -14,18 +14,21 @@ $gray-900: darken($gray, 40%);
 $black:    #000000;
 
 $purple: #641FF1;
+$blue:   #00CEFF;
 $green:  #00B088;
 $red:    #D70000;
 
 $colors: (
 	"purple": $purple,
+	"blue":   $green,
 	"green":  $green,
 	"red":    $red
 );
 
-$primary: $purple;
-$success: $green;
-$danger:  $red;
+$primary:   $purple;
+$secondary: $blue;
+$success:   $green;
+$danger:    $red;
 
 $theme-colors: (
 	"primary": $primary,
@@ -43,7 +46,8 @@ $spacer:         1rem;
 
 // Links
 
-$link-color: $primary;
+$link-color:       $primary;
+$link-decoration:  none;
 
 
 // Components

@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Stack from 'react-bootstrap/Stack';
+import {
+	RiArrowDropDownLine,
+	RiCheckLine,
+	RiMoonLine,
+	RiSunLine
+} from '@remixicon/react'
 
 const THEME_STORAGE_KEY = 'theme-preference';
 
@@ -26,17 +33,38 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 		}
 	}, []);
 	
-	const toggleTheme = () => {
-		const newTheme: Theme = theme === 'light' ? 'dark' : 'light';
-		setTheme(newTheme);
-		applyTheme(newTheme);
-		localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+	const toggleTheme = (selectedTheme: Theme) => {
+		setTheme(selectedTheme);
+		applyTheme(selectedTheme);
+		localStorage.setItem(THEME_STORAGE_KEY, selectedTheme);
 	};
 	
 	return (
-		<Button onClick={toggleTheme}>
-			Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
-		</Button>
+		<Dropdown>
+			<Dropdown.Toggle bsPrefix="lr">
+				<Stack direction="horizontal" gap={1}>
+					<span>Change theme</span>
+					<RiArrowDropDownLine />
+				</Stack>
+			</Dropdown.Toggle>
+			<Dropdown.Menu>
+				{['light', 'dark'].map((color, i) =>
+					<Dropdown.Item key={i} onClick={() => toggleTheme(color)}>
+						<Stack direction="horizontal" gap={2}>
+							{color === 'light' ? (
+								<RiSunLine />
+							) : (
+								<RiMoonLine />
+							)}
+							<span>{color.charAt(0).toUpperCase() + color.slice(1)}</span>
+							{color === theme && (
+								<RiCheckLine className="text-success ms-auto" />
+							)}
+						</Stack>
+					</Dropdown.Item>
+				)}
+			</Dropdown.Menu>
+		</Dropdown>
 	);
 };
 
