@@ -1,12 +1,12 @@
 ---
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import ThemeSwitcher from './ThemeSwitcher';
 ---
 
 <header>
-    {/*
-        <Container>
-            <Button variant="link" href="/">LR</Button>
-        </Container>
-    */}
+    <Container>
+        <Button variant="link" href="/">LR</Button>
+        <ThemeSwitcher client:load />
+    </Container>
 </header>
