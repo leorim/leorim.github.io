@@ -41,7 +41,7 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 	
 	return (
 		<Dropdown>
-			<Dropdown.Toggle bsPrefix="lr">
+			<Dropdown.Toggle bsPrefix="lr" variant="link">
 				<Stack direction="horizontal" gap={1}>
 					<span>Change theme</span>
 					<RiArrowDropDownLine />

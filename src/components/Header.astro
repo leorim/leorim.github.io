@@ -1,12 +1,10 @@
 ---
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import ThemeSwitcher from './ThemeSwitcher';
 ---
 
 <header>
-    <Container className="d-flex justify-content-between">
-        <Button variant="link" href="/">LR</Button>
+    <Container className="d-flex justify-content-end">
         <ThemeSwitcher client:load />
     </Container>
 </header>
