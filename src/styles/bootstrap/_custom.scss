@@ -59,11 +59,24 @@ $font-family-sans-serif: "Inter", sans-serif;
 $font-size-base:         1rem;
 $font-size-lg:           $font-size-base * 1.25;
 
-$display-font-weight:    900;
+$font-weight-thin:       100;
+$font-weight-extralight: 200;
+$font-weight-light:      300;
+$font-weight-regular:    400;
+$font-weight-medium:     500;
+$font-weight-semibold:   600;
+$font-weight-bold:       700;
+$font-weight-extrabold:  800;
+$font-weight-black:      900;
+$font-weight-lighter:    $font-weight-extralight;
+$font-weight-normal:     $font-weight-regular;
+$font-weight-bolder:     $font-weight-extrabold;
+
+$display-font-weight:    $font-weight-black;
 $display-line-height:    calc(80/48);
 
 $lead-font-size:         $font-size-base * 1.5;
-$lead-font-weight:       300;
+$lead-font-weight:       $font-weight-light;
 
 
 // Close

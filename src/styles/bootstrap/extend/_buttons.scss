@@ -1,3 +1,6 @@
+$btn-padding-y:      $spacer * .5;
+$btn-padding-x:      $spacer;
+
 $btn-padding-y-lg:      $spacer;
 $btn-padding-x-lg:      $spacer * 2;
 
@@ -6,13 +9,13 @@ $btn-font-size-lg:      $font-size-base * 1.125;
 $btn-line-height:       calc(24/18);
 $btn-disabled-opacity:  .6;
 
-$btn-border-width:      0;
+$btn-border-width:      map-get($border-widths, 1);
 
 $btn-box-shadow:        var(--#{$prefix}btn-shadow-one-spread) rgba($black, var(--#{$prefix}btn-shadow-one-opacity)),
                         var(--#{$prefix}btn-shadow-two-spread) rgba($black, var(--#{$prefix}btn-shadow-two-opacity)),
                         var(--#{$prefix}btn-glow-spread) hsl(from var(--#{$prefix}btn-bg) h s l / var(--#{$prefix}btn-glow-opacity)),
 						inset var(--#{$prefix}btn-inner-shadow-spread) hsl(from var(--#{$prefix}btn-inner-shadow-color) h s l / var(--#{$prefix}btn-inner-shadow-opacity)),
-						inset 0 0 0 map-get($border-widths, 2) rgba($white, .4);
+						inset 0 0 0 var(--#{$prefix}btn-border-width) rgba($white, .4);
 $btn-focus-box-shadow:  $btn-box-shadow;
 $btn-active-box-shadow: $btn-box-shadow;
 
@@ -50,8 +53,13 @@ $btn-active-border-tint-amount:   0%;
 	--#{$prefix}btn-inner-shadow-color: #{$white};
 	--#{$prefix}btn-inner-shadow-spread: 0 0 24px 0;
 	--#{$prefix}btn-inner-shadow-opacity: 0.4;
+	border-width: 0;
 	position: relative;
 	border-color: transparent;
+
+	&-lg {
+		--#{$prefix}btn-border-width: #{map-get($border-widths, 2)};
+	}
 	
 	&:disabled,
 	&.disabled {
@@ -111,7 +119,7 @@ $btn-active-border-tint-amount:   0%;
 		width: 100%;
 		border-radius: var(--#{$prefix}btn-border-radius);
 		background: linear-gradient(var(--rotation), rgba($white, 0.00) 0%, $white 50%, rgba($white, 0.00) 100%) border-box;
-		border: 2px solid transparent;
+		border: var(--#{$prefix}btn-border-width) solid transparent;
 		mask: /* mask inside the button */
 			linear-gradient($black 0 0) padding-box, 
 			linear-gradient($black 0 0);
