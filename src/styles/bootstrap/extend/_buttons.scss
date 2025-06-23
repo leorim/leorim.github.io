@@ -1,5 +1,5 @@
-$btn-padding-y:      $spacer * .5;
-$btn-padding-x:      $spacer;
+$btn-padding-y:         $spacer * .5;
+$btn-padding-x:         $spacer;
 
 $btn-padding-y-lg:      $spacer;
 $btn-padding-x-lg:      $spacer * 2;
@@ -43,72 +43,8 @@ $btn-active-border-tint-amount:   0%;
 	initial-value: 191deg;
 }
 
-.btn {
-	--#{$prefix}btn-shadow-one-spread: 0 2px 8px 0;
-	--#{$prefix}btn-shadow-one-opacity: 0.4;
-	--#{$prefix}btn-shadow-two-spread: 0 0 24px 0;
-	--#{$prefix}btn-shadow-two-opacity: 0.24;
-	--#{$prefix}btn-glow-spread: 0 16px 32px 0;
-	--#{$prefix}btn-glow-opacity: 0.16;
-	--#{$prefix}btn-inner-shadow-color: #{$white};
-	--#{$prefix}btn-inner-shadow-spread: 0 0 24px 0;
-	--#{$prefix}btn-inner-shadow-opacity: 0.4;
-	border-width: 0;
+.btn:not(.btn-link) {
 	position: relative;
-	border-color: transparent;
-
-	&-lg {
-		--#{$prefix}btn-border-width: #{map-get($border-widths, 2)};
-	}
-	
-	&:disabled,
-	&.disabled {
-		box-shadow: $btn-box-shadow;
-		opacity: 1;
-		background: hsl(from var(--#{$prefix}btn-bg) h s l / #{$btn-disabled-opacity});
-		color: hsl(from var(--#{$prefix}btn-color) h s l / #{$btn-disabled-opacity});
-	}
-
-	&:disabled,
-	&:active,
-	&.disabled
-	&.active {
-		--#{$prefix}btn-shadow-one-spread: 0 1px 4px 0;
-		--#{$prefix}btn-shadow-one-opacity: 0.48;
-		--#{$prefix}btn-shadow-two-spread: 0 0 12px 0;
-		--#{$prefix}btn-shadow-two-opacity: 0.32;
-		--#{$prefix}btn-glow-opacity: 0.48;
-		--#{$prefix}btn-glow-spread: 0 8px 16px 0;
-		--#{$prefix}btn-inner-shadow-color: #{$black};
-		--#{$prefix}btn-inner-shadow-opacity: 0.2;
-		--#{$prefix}btn-icon-color: var(--#{$prefix}btn-color);
-		
-		&::before {
-			--rotation: initial;
-		}
-	}
-	
-	&:not(:disabled),
-	&:not(.disabled) {
-		
-		&:hover {
-			--#{$prefix}btn-shadow-one-spread: 0 4px 12px 0;
-			--#{$prefix}btn-shadow-two-spread: 0 0 16px 0;
-			--#{$prefix}btn-glow-spread: 0 12px 24px 0;
-			--#{$prefix}btn-glow-opacity: 0.32;
-			--#{$prefix}btn-inner-shadow-opacity: 0.64;
-			transform: translate3d(0,-1px,0);
-			
-			&::before {
-				--rotation: 169deg;
-			}
-		}
-		
-		&:active,
-		.active {
-			transform: translate3d(0,1px,0);
-		}
-	}
 	
 	&::before {
 		content: "";
@@ -126,5 +62,75 @@ $btn-active-border-tint-amount:   0%;
 		mask-composite: exclude;
 		mix-blend-mode: overlay;
 		transition: --rotation .5s;
+	}
+}
+
+@each $color, $value in $theme-colors {
+	
+	.btn-#{$color} {
+		--#{$prefix}btn-shadow-one-spread: 0 2px 8px 0;
+		--#{$prefix}btn-shadow-one-opacity: 0.4;
+		--#{$prefix}btn-shadow-two-spread: 0 0 24px 0;
+		--#{$prefix}btn-shadow-two-opacity: 0.24;
+		--#{$prefix}btn-glow-spread: 0 16px 32px 0;
+		--#{$prefix}btn-glow-opacity: 0.16;
+		--#{$prefix}btn-inner-shadow-color: #{$white};
+		--#{$prefix}btn-inner-shadow-spread: 0 0 24px 0;
+		--#{$prefix}btn-inner-shadow-opacity: 0.4;
+		border-width: 0;
+		border-color: transparent;
+		
+		&-lg {
+			--#{$prefix}btn-border-width: #{map-get($border-widths, 2)};
+		}
+		
+		&:disabled,
+		&.disabled {
+			box-shadow: $btn-box-shadow;
+			opacity: 1;
+			background: hsl(from var(--#{$prefix}btn-bg) h s l / #{$btn-disabled-opacity});
+			color: hsl(from var(--#{$prefix}btn-color) h s l / #{$btn-disabled-opacity});
+		}
+		
+		&:disabled,
+		&:active,
+		&.disabled
+		&.active {
+			--#{$prefix}btn-shadow-one-spread: 0 1px 4px 0;
+			--#{$prefix}btn-shadow-one-opacity: 0.48;
+			--#{$prefix}btn-shadow-two-spread: 0 0 12px 0;
+			--#{$prefix}btn-shadow-two-opacity: 0.32;
+			--#{$prefix}btn-glow-opacity: 0.48;
+			--#{$prefix}btn-glow-spread: 0 8px 16px 0;
+			--#{$prefix}btn-inner-shadow-color: #{$black};
+			--#{$prefix}btn-inner-shadow-opacity: 0.2;
+			--#{$prefix}btn-icon-color: var(--#{$prefix}btn-color);
+			
+			&::before {
+				--rotation: initial;
+			}
+		}
+		
+		&:not(:disabled),
+		&:not(.disabled) {
+			
+			&:hover {
+				--#{$prefix}btn-shadow-one-spread: 0 4px 12px 0;
+				--#{$prefix}btn-shadow-two-spread: 0 0 16px 0;
+				--#{$prefix}btn-glow-spread: 0 12px 24px 0;
+				--#{$prefix}btn-glow-opacity: 0.32;
+				--#{$prefix}btn-inner-shadow-opacity: 0.64;
+				transform: translate3d(0,-1px,0);
+				
+				&::before {
+					--rotation: 169deg;
+				}
+			}
+			
+			&:active,
+			.active {
+				transform: translate3d(0,1px,0);
+			}
+		}
 	}
 }
