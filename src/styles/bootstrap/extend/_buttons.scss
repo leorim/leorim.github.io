@@ -61,7 +61,7 @@ $btn-active-border-tint-amount:   0%;
 			linear-gradient($black 0 0);
 		mask-composite: exclude;
 		mix-blend-mode: overlay;
-		transition: --rotation .5s;
+		transition: --rotation $btn-transition-time $btn-transition-timing-function;
 	}
 }
 
