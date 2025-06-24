@@ -1,1 +1,12 @@
+$toast-background-color:            $window-bg;
+$toast-border-width:                $window-border-width;
+$toast-border-color:                $window-border-color;
+$toast-border-radius:               $window-border-radius;
+$toast-box-shadow:                  $widow-box-shadow;
+
 @import "bootstrap/scss/toasts";
+
+.toast {
+	backdrop-filter: $widow-backdrop-filter;
+	@include windowShine();
+}

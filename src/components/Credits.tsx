@@ -18,7 +18,10 @@ const Credits: React.FunctionComponent = () => {
                     <span>About</span>
                 </Stack>
             </Button>
-            <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas
+                show={show}
+                onHide={handleClose}
+            >
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>About</Offcanvas.Title>
                 </Offcanvas.Header>

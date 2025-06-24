@@ -39,7 +39,7 @@ $theme-colors: (
 
 // Options
 
-$prefix:         'lr-';
+$prefix: 'lr-';
 $enable-shadows: true;
 $spacer:         1rem;
 
@@ -52,9 +52,11 @@ $link-decoration:  none;
 
 // Components
 
-$border-radius:    $spacer * .5;
-$border-radius-lg: $spacer;
+$border-radius:           $spacer * .5;
+$border-radius-lg:        $spacer;
 
+$box-shadow:              0 2px 8px 0 rgba(0,0,0,0.20), 0 0 24px 0 rgba(0,0,0,0.12);
+$box-shadow-inset:        inset 0 0 24px 0 rgba(255,255,255,0.80);
 
 // Typography
 
