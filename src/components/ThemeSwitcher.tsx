@@ -43,13 +43,22 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 		<Dropdown>
 			<Dropdown.Toggle bsPrefix="lr" variant="link">
 				<Stack direction="horizontal" gap={1}>
-					<span>Change theme</span>
+					{theme === 'light' ? (
+						<RiSunLine />
+					) : (
+						<RiMoonLine />
+					)}
 					<RiArrowDropDownLine />
 				</Stack>
 			</Dropdown.Toggle>
 			<Dropdown.Menu>
+				<Dropdown.Header>Select theme</Dropdown.Header>
 				{['light', 'dark'].map((color, i) =>
-					<Dropdown.Item key={i} onClick={() => toggleTheme(color)}>
+					<Dropdown.Item
+						key={i}
+						onClick={() => toggleTheme(color)}
+						active={color === theme}
+					>
 						<Stack direction="horizontal" gap={2}>
 							{color === 'light' ? (
 								<RiSunLine />
@@ -58,7 +67,7 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 							)}
 							<span>{color.charAt(0).toUpperCase() + color.slice(1)}</span>
 							{color === theme && (
-								<RiCheckLine className="text-success ms-auto" />
+								<RiCheckLine className="ms-auto" />
 							)}
 						</Stack>
 					</Dropdown.Item>
