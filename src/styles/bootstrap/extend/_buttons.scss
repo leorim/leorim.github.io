@@ -22,8 +22,8 @@ $btn-active-box-shadow: $btn-box-shadow;
 $btn-border-radius:               var(--#{$prefix}border-radius-pill);
 $btn-border-radius-lg:            var(--#{$prefix}border-radius-lg);
 
-$btn-transition-timing-function:  ease-in-out; 
-$btn-transition-time:             .25s;
+$btn-transition-timing-function:  $transition-timing-function; 
+$btn-transition-time:             $transition-time;
 $btn-transition:                  transform $btn-transition-time $btn-transition-timing-function,
 								  background $btn-transition-time $btn-transition-timing-function,
 								  color $btn-transition-time $btn-transition-timing-function,

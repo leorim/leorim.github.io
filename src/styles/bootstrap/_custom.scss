@@ -44,6 +44,12 @@ $enable-shadows: true;
 $spacer:         1rem;
 
 
+// Body
+
+$body-color:       $black;
+$body-color-dark:  $white;
+
+
 // Links
 
 $link-color:       $primary;
@@ -57,6 +63,9 @@ $border-radius-lg:        $spacer;
 
 $box-shadow:              0 2px 8px 0 rgba(0,0,0,0.20), 0 0 24px 0 rgba(0,0,0,0.12);
 $box-shadow-inset:        inset 0 0 24px 0 rgba(255,255,255,0.80);
+
+$transition-timing-function:  ease-in-out; 
+$transition-time:             .25s;
 
 // Typography
 
@@ -83,10 +92,3 @@ $display-line-height:    calc(80/48);
 
 $lead-font-size:         $font-size-base * 1.5;
 $lead-font-weight:       $font-weight-light;
-
-
-// Close
-
-$btn-close-color: #000000;
-$btn-close-width:  24px;
-$btn-close-bg:     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$btn-close-color}'><path d='M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z'></path></svg>");

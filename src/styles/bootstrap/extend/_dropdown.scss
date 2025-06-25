@@ -9,10 +9,20 @@ $dropdown-border-width:             $window-border-width;
 $dropdown-inner-border-radius:      $window-inner-border-radius;
 $dropdown-box-shadow:               $widow-box-shadow;
 
+$dropdown-link-hover-bg:            rgba(var(--#{$prefix}black-rgb), .1);
+
 $dropdown-item-padding-y:           $spacer * .5;
 $dropdown-item-padding-x:           $spacer;
 
 @import "bootstrap/scss/dropdown";
+
+@include color-mode(dark) {
+	
+	.dropdown-menu {
+		--#{$prefix}dropdown-header-color: #{$gray-400};
+		--#{$prefix}dropdown-link-hover-bg: rgba(var(--#{$prefix}white-rgb), .1);
+	}
+}
 
 .dropdown-menu {
 	--#{$prefix}dropdown-item-border-radius: #{$border-radius};
@@ -23,5 +33,29 @@ $dropdown-item-padding-x:           $spacer;
 	
 	&.show {
 		display: flex;
+	}
+	
+	&-enter {
+		opacity: 0;
+		transform: translate3d(0, $spacer * -1, 0);
+		
+		&-active {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+			transition: transform $transition-time $transition-timing-function,
+						opacity $transition-time $transition-timing-function;
+		}
+	}
+	
+	&-exit {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		
+		&-active {
+			opacity: 0;
+			transform: translate3d(0, $spacer * -1, 0);
+			transition: transform $transition-time $transition-timing-function,
+						opacity $transition-time $transition-timing-function;
+		}
 	}
 }
