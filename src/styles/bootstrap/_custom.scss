@@ -56,6 +56,11 @@ $link-color:       $primary;
 $link-decoration:  none;
 
 
+// Grid columns
+
+$grid-gutter-width:       $spacer * 2;
+
+
 // Components
 
 $border-radius:           $spacer * .5;
@@ -66,6 +71,7 @@ $box-shadow-inset:        inset 0 0 24px 0 rgba(255,255,255,0.80);
 
 $transition-timing-function:  ease-in-out; 
 $transition-time:             .25s;
+
 
 // Typography
 
