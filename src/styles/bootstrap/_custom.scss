@@ -1,0 +1,94 @@
+// Color system
+
+$white:    #FFFFFF;
+$gray:     #847D91;
+$gray-100: lighten($gray, 40%);
+$gray-200: lighten($gray, 30%);
+$gray-300: lighten($gray, 20%);
+$gray-400: lighten($gray, 10%);
+$gray-500: $gray;
+$gray-600: darken($gray, 10%);
+$gray-700: darken($gray, 20%);
+$gray-800: darken($gray, 30%);
+$gray-900: darken($gray, 40%);
+$black:    #000000;
+
+$purple: #641FF1;
+$blue:   #00CEFF;
+$green:  #00B088;
+$red:    #D70000;
+
+$colors: (
+	"purple": $purple,
+	"blue":   $green,
+	"green":  $green,
+	"red":    $red
+);
+
+$primary:   $purple;
+$secondary: $blue;
+$success:   $green;
+$danger:    $red;
+
+$theme-colors: (
+	"primary": $primary,
+	"success": $success,
+	"danger":  $danger
+);
+
+
+// Options
+
+$prefix: 'lr-';
+$enable-shadows: true;
+$spacer:         1rem;
+
+
+// Body
+
+$body-color:       $black;
+$body-color-dark:  $white;
+
+
+// Links
+
+$link-color:       $primary;
+$link-decoration:  none;
+
+
+// Components
+
+$border-radius:           $spacer * .5;
+$border-radius-lg:        $spacer;
+
+$box-shadow:              0 2px 8px 0 rgba(0,0,0,0.20), 0 0 24px 0 rgba(0,0,0,0.12);
+$box-shadow-inset:        inset 0 0 24px 0 rgba(255,255,255,0.80);
+
+$transition-timing-function:  ease-in-out; 
+$transition-time:             .25s;
+
+// Typography
+
+$font-family-sans-serif: "Inter", sans-serif;
+
+$font-size-base:         1rem;
+$font-size-lg:           $font-size-base * 1.25;
+
+$font-weight-thin:       100;
+$font-weight-extralight: 200;
+$font-weight-light:      300;
+$font-weight-regular:    400;
+$font-weight-medium:     500;
+$font-weight-semibold:   600;
+$font-weight-bold:       700;
+$font-weight-extrabold:  800;
+$font-weight-black:      900;
+$font-weight-lighter:    $font-weight-extralight;
+$font-weight-normal:     $font-weight-regular;
+$font-weight-bolder:     $font-weight-extrabold;
+
+$display-font-weight:    $font-weight-black;
+$display-line-height:    calc(80/48);
+
+$lead-font-size:         $font-size-base * 1.5;
+$lead-font-weight:       $font-weight-light;

@@ -1,0 +1,47 @@
+.copy-button {
+	--#{$prefix}icon-opacity: #{$btn-disabled-opacity};
+	
+	&:disabled,
+	&.disabled {
+		--#{$prefix}icon-opacity: 1;
+	}
+	
+	&:not(:disabled),
+	&:not(.disabled) {
+		
+		&:hover,
+		&:active,
+		.active {
+			--#{$prefix}icon-opacity: 1;
+		}
+	}
+	
+	.remixicon {
+		opacity: var(--#{$prefix}icon-opacity);
+		transition: opacity $btn-transition-time $btn-transition-timing-function;
+	}
+	
+	.slide-enter {
+		opacity: 0;
+		transform: translate3d(0, -40%, 0);
+		
+		&-active {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+			transition: transform $btn-transition-time $btn-transition-timing-function,
+						opacity $btn-transition-time $btn-transition-timing-function;
+		}
+	}
+	
+	.slide-exit {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		
+		&-active {
+			opacity: 0;
+			transform: translate3d(0, 40%, 0);
+			transition: transform $btn-transition-time $btn-transition-timing-function,
+						opacity $btn-transition-time $btn-transition-timing-function;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+---
+import Credits from '../components/Credits';
+import Container from 'react-bootstrap/Container';
+const { name } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer>
+    <Container className="text-center">
+        <small class="text-muted">&copy;{year} {name}</small>
+    </Container>
+</footer>

@@ -1,21 +1,38 @@
 ---
-import '../styles/styles.scss';
+import { Col, Row, Stack } from 'react-bootstrap';
+import { RiExternalLinkLine } from '@remixicon/react'
+import Base from '../layouts/Base.astro';
+import CopyButton from '../components/CopyButton';
+
+const name: string = "Leo Rimmer";
+const role: string = "Design lead, UX/UI & front-end development";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@700&display=swap" rel="stylesheet">
-        <title>Rimmer.co</title>
-    </head>
-    <style>
-    </style>
-    <body>
-        <h1 class="hello">Hello</h1>
-    </body>
-</html>
+<Base title={`${name} • ${role}`} name={name}>
+    <Row className="g-3">
+        <Col
+            xs={12}
+            md={{offset: 2, span: 8}}
+            lg={{offset: 3, span: 6}}
+            className="intro"
+        >
+            <h1 class="display-5">{name}</h1>
+            <p class="lead">
+                {role}.<br>
+                Currently working at
+                <Stack
+                    className="d-inline-flex"
+                    direction="horizontal"
+                    as="a"
+                    href="https://petdirect.co.nz/"
+                    target="_blank"
+                    gap={1}
+                >
+                    <span>Petdirect</span>
+                    <RiExternalLinkLine />
+                </Stack>.
+            </p>
+            <CopyButton size="lg" client:load />
+        </Col>
+    </Row>
+</Base>

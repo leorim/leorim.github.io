@@ -1,35 +1,33 @@
-$font-size-base:     16px;
-$spacer:             1rem;
-$backgroundGradient: linear-gradient(
-    135deg,
-    rgba(255, 255, 196, 1.000) 0.000%,
-    rgba(255, 97, 100, 1.000) 50.000%,
-    rgba(176, 0, 18, 1.000) 100.000%
-);
-
-html {
-    font-size: $font-size-base;
-}
+@import "bootstrap";
+@import "components";
 
 body {
-    margin: 0;
-    padding: 0 $spacer;
+    font-optical-sizing: auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background: #000000;
-    color: #FFFFFF;
-    font-family: "KoHo", sans-serif;
-    font-weight: 700;
-    font-style: normal;
+    
+    > header {
+        padding: $spacer;
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    
+    > main {
+        width: 100%;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    
+    > footer {
+        width: 100%;
+        padding: $spacer;
+        flex: 0 0 auto;
+    }
 }
 
-.hello {
-    margin: $spacer 0;
-    font-size: clamp(#{$spacer * 3}, 20vw, #{$spacer * 30});
-    background: $backgroundGradient;
-    background-clip: text;
-    color: transparent;
-}

@@ -1,0 +1,50 @@
+$window-bg:                  var(--#{$prefix}window-bg);
+$window-border-color:        var(--#{$prefix}window-border-color);
+$window-border-radius:       var(--#{$prefix}border-radius-lg);
+$window-border-width:        0;
+$window-inner-border-radius: calc(#{$window-border-radius} - #{$window-border-width});
+$widow-box-shadow:           var(--#{$prefix}window-box-shadow);
+$widow-backdrop-filter:      blur(3px);
+
+:root {
+	--#{$prefix}window-bg:           hsl(from var(--#{$prefix}gray-400) h s l / .6);
+	--#{$prefix}window-border-color: var(--#{$prefix}gray-400);
+	--#{$prefix}window-box-shadow:   0 0 8px 0 rgba(0,0,0,0.24), 0 0 24px 0 rgba(0,0,0,0.12), inset 0 0 24px 0 rgba(255,255,255,0.80), inset 0 0 0 var(--#{$prefix}border-width) var(--#{$prefix}window-border-color);
+	--#{$prefix}window-shine-color:  var(--#{$prefix}white-rgb);
+	--#{$prefix}window-shineopacity: .64;
+}
+
+@include color-mode(dark) {
+	--#{$prefix}window-bg:           hsl(from var(--#{$prefix}gray-800) h s l / .6);
+	--#{$prefix}window-border-color: var(--#{$prefix}gray-800);
+	--#{$prefix}window-box-shadow:   0 0 8px 0 rgba(0,0,0,0.48), 0 0 24px 0 rgba(0,0,0,0.24), inset 0 0 24px 0 rgba(255,255,255,0.08), inset 0 0 0 var(--#{$prefix}border-width) var(--#{$prefix}window-border-color);
+	--#{$prefix}window-shine-color:  var(--#{$prefix}white-rgb);
+	--#{$prefix}window-shine-opacity: .24;
+}
+
+@mixin windowShine() {
+	
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		border-radius: $window-border-radius;
+		background: linear-gradient(
+			131deg,
+			rgb(var(--#{$prefix}window-shine-color)) 0%,
+			rgba(var(--#{$prefix}window-shine-color),0.00) 20%,
+			rgba(var(--#{$prefix}window-shine-color),0.00) 80%,
+			rgb(var(--#{$prefix}window-shine-color)) 100%
+		) border-box;
+		border: 1px solid transparent;
+		mask: /* mask inside */
+			linear-gradient($black 0 0) padding-box, 
+			linear-gradient($black 0 0);
+		mask-composite: exclude;
+		opacity: var(--#{$prefix}window-shine-opacity);
+		pointer-events: none;
+	}
+}
