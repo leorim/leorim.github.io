@@ -18,7 +18,6 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 	const [theme, setTheme] = useState<Theme>('auto');
 	const [show, setShow] = useState<boolean>(false);
 	const dropdownMenuRef = useRef<Dropdown.DropdownProps>(null);
-	const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 	
 	const applyTheme = (newTheme: Theme) => {
 		document.body.setAttribute('data-bs-theme', newTheme);
@@ -31,7 +30,7 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 			setTheme(storedTheme);
 			applyTheme(storedTheme);
 		} else {
-			const defaultTheme: Theme = systemPrefersDark ? 'dark' : 'light';
+			const defaultTheme: Theme = 'auto';
 			setTheme(defaultTheme);
 			applyTheme(defaultTheme);
 		}
@@ -40,7 +39,7 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 	const toggleTheme = (selectedTheme: Theme) => {
 		setTheme(selectedTheme);
 		if (selectedTheme === 'auto') {
-			applyTheme(systemPrefersDark ? 'dark' : 'black');
+			applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'black');
 		} else {
 			applyTheme(selectedTheme);
 		}
