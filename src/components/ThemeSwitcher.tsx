@@ -20,7 +20,11 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 	const dropdownMenuRef = useRef<Dropdown.DropdownProps>(null);
 	
 	const applyTheme = (newTheme: Theme) => {
-		document.body.setAttribute('data-bs-theme', newTheme);
+		let t = newTheme;
+		if (newTheme === 'auto') {
+			t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'black';
+		}
+		document.body.setAttribute('data-bs-theme', t);
 	};
 	
 	useEffect(() => {
@@ -30,19 +34,13 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 			setTheme(storedTheme);
 			applyTheme(storedTheme);
 		} else {
-			const defaultTheme: Theme = 'auto';
-			setTheme(defaultTheme);
-			applyTheme(defaultTheme);
+			applyTheme('auto');
 		}
 	}, []);
 	
 	const toggleTheme = (selectedTheme: Theme) => {
 		setTheme(selectedTheme);
-		if (selectedTheme === 'auto') {
-			applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'black');
-		} else {
-			applyTheme(selectedTheme);
-		}
+		applyTheme(selectedTheme);
 		localStorage.setItem(THEME_STORAGE_KEY, selectedTheme);
 	};
 	
