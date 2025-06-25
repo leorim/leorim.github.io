@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from "react-transition-group";
-import Dropdown from 'react-bootstrap/Dropdown';
-import Stack from 'react-bootstrap/Stack';
+import { Dropdown, Stack } from 'react-bootstrap';
 import {
 	RiArrowDropDownLine,
 	RiCheckLine,
