@@ -1,6 +1,10 @@
 .copy-button {
 	--#{$prefix}icon-opacity: #{$btn-disabled-opacity};
 	
+	span {
+		white-space: nowrap;
+	}
+	
 	&:disabled,
 	&.disabled {
 		--#{$prefix}icon-opacity: 1;

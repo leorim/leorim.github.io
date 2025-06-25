@@ -10,7 +10,7 @@ body {
     justify-content: center;
     
     > header {
-        padding: $spacer;
+        padding: $spacer 0;
         flex: 0 0 auto;
         width: 100%;
     }
@@ -26,7 +26,7 @@ body {
     
     > footer {
         width: 100%;
-        padding: $spacer;
+        padding: $spacer 0;
         flex: 0 0 auto;
     }
 }

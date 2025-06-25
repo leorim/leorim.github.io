@@ -55,7 +55,7 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 	
 	return (
 		<Dropdown show={show} onToggle={() => setShow(!show)}>
-			<Dropdown.Toggle bsPrefix="lr" variant="link">
+			<Dropdown.Toggle bsPrefix="lr" variant="link" className="px-0">
 				<Stack direction="horizontal" gap={1}>
 					{renderIcon(theme)}
 					<RiArrowDropDownLine />
