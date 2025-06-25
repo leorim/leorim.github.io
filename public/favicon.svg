@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <circle cx="64" cy="64" r="32" />
-    <style>
-        circle { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            circle { fill: #FFF; }
-        }
-    </style>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512px" height="512px"><svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Frame</title>
+    <g id="SvgjsG1018" stroke="none" fill="none" fill-rule="evenodd">
+        <path d="M335.16611,0 C365.153265,0 394.536884,8.42711118 419.965941,24.3202714 C494.899786,71.1539245 517.679492,169.865985 470.845839,244.79983 L410.44698,341.424394 C403.960816,351.800794 403.960091,364.967659 410.445112,375.344774 L465.249735,463.041304 C474.615764,478.028512 470.058899,497.770711 455.071691,507.13674 C449.986163,510.314864 444.109917,512 438.112996,512 L321.581658,512 C310.548376,512 300.293339,506.31617 294.445712,496.959966 L22.0957065,61.1999576 C10.3872932,42.4664964 16.0822198,17.7884811 34.8156811,6.08006784 C41.1729451,2.1067778 48.51885,0 56.0156387,0 L335.16611,0 Z" id="SvgjsPath1017" fill="#641FF1"></path>
+    </g>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
