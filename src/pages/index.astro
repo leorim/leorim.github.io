@@ -6,6 +6,13 @@ import CopyButton from '../components/CopyButton';
 
 const name: string = "Leo Rimmer";
 const role: string = "Design lead, UX/UI & front-end development";
+const heading: string = "Heading";
+const subHeading: string = "Sub heading";
+const current = {
+    name: "Somewhere",
+    url: "https://petdirect.co.nz/"
+};
+
 ---
 
 <Base title={`${name} • ${role}`} name={name}>
@@ -16,18 +23,18 @@ const role: string = "Design lead, UX/UI & front-end development";
             lg={{offset: 3, span: 6}}
             className="intro"
         >
-            <h1 class="display-5">{name}</h1>
+            <h1 class="display-5">{heading}</h1>
             <p class="lead">
-                {role}. Currently working at
+                {subHeading}
                 <Stack
                     className="d-inline-flex"
                     direction="horizontal"
                     as="a"
-                    href="https://petdirect.co.nz/"
+                    href={current.url}
                     target="_blank"
                     gap={1}
                 >
-                    <span>Petdirect</span>
+                    <span>{current.name}</span>
                     <RiExternalLinkLine />
                 </Stack>.
             </p>
