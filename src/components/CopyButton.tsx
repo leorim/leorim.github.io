@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useCopyToClipboard } from 'usehooks-ts';
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-import { Button, Fade, Stack, Toast, ToastContainer } from 'react-bootstrap';
+import { Button, Stack, Toast, ToastContainer } from 'react-bootstrap';
 import {
     RiFileCopyLine,
     RiCheckLine,

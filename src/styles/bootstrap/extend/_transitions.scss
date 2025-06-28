@@ -6,8 +6,7 @@
 		opacity: 0;
 		transform: translate3d(0, $spacer * -1, 0);
 		
-		&-active,
-		&ed {
+		&-active {
 			opacity: 1;
 			transform: translate3d(0, 0, 0);
 			transition: transform $transition-time $transition-timing-function,
@@ -19,8 +18,7 @@
 		opacity: 1;
 		transform: translate3d(0, 0, 0);
 		
-		&-active,
-		&ing {
+		&-active {
 			opacity: 0;
 			transform: translate3d(0, $spacer * -1, 0);
 			transition: transform $transition-time $transition-timing-function,
