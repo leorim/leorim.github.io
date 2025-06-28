@@ -11,6 +11,7 @@ header {
 	.logo {
 		height: $spacer * 2;
 		width: $spacer * 2;
+		color: var(--#{$prefix}link-color);
 	}
 }
 

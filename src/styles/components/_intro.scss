@@ -11,5 +11,13 @@
 	
 	.lead {
 		margin: 0 0 $spacer;
+		
+		a {
+			font-weight: $font-weight-medium;
+			
+			.remixicon {
+				opacity: .5;
+			}
+		}
 	}
 }
