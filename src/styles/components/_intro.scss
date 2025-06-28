@@ -5,6 +5,19 @@
 		padding-right: 0;
 	}
 	
+	.name {
+		font-family: $font-family-mono;
+		letter-spacing: $spacer * .25;
+		text-transform: uppercase;
+		color: var(--#{$prefix}link-color);
+		margin-bottom: $spacer;
+		
+		&::after {
+			content: ".";
+			background: currentcolor;
+		}
+	}
+	
 	.display-5 {
 		margin: 0 0 $spacer;
 	}
