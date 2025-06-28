@@ -1,0 +1,15 @@
+header {
+	--#{$prefix}header-padding-y: #{$spacer};
+	
+	> .container {
+		display: flex;
+		justify-content: space-between;
+		padding-top: var(--#{$prefix}header-padding-y);
+		padding-bottom: var(--#{$prefix}header-padding-y);
+	}
+	
+	.logo {
+		height: $spacer * 2;
+		width: $spacer * 2;
+	}
+}
