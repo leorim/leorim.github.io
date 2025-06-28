@@ -20,6 +20,11 @@
 	border-width: 0;
 	border-color: transparent;
 	position: relative;
+	width: 100%;
+	
+	@include media-breakpoint-up(md) {
+		width: auto;
+	}
 	
 	&.btn-lg {
 		--#{$prefix}btn-border-width: #{map-get($border-widths, 2)};
