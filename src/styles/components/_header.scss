@@ -7,30 +7,4 @@ header {
 		padding-top: var(--#{$prefix}header-footer-padding-y);
 		padding-bottom: var(--#{$prefix}header-footer-padding-y);
 	}
-	
-	.logo {
-		height: $spacer * 2;
-		width: $spacer * 2;
-		color: var(--#{$prefix}link-color);
-	}
-}
-
-.btn-dropdown {
-	@extend .btn-link;
-	--#{$prefix}btn-hover-bg-opacity: .2;
-	--#{$prefix}btn-hover-bg: hsl(from var(--#{$prefix}window-border-color) h s l / var(--#{$prefix}btn-hover-bg-opacity));
-	--#{$prefix}btn-active-bg: var(--#{$prefix}btn-hover-bg);
-	padding-right: $btn-padding-x - ($spacer * .25);
-	margin-right: $spacer * -1;
-	
-	@include media-breakpoint-up(md) {
-		margin-right: 0;
-	}
-}
-
-@include color-mode(dark) {
-	
-	.btn-dropdown {
-		--#{$prefix}btn-hover-bg-opacity: .6;
-	}	
 }

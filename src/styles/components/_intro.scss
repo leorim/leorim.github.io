@@ -5,18 +5,8 @@
 		padding-right: 0;
 	}
 	
-	.name {
-		font-family: $font-family-mono;
-		letter-spacing: $spacer * .25;
-		text-transform: uppercase;
-		color: var(--#{$prefix}link-color);
+	.mono {
 		margin-bottom: $spacer;
-		
-		&::after {
-			content: ".";
-			background: currentcolor;
-			opacity: .5;
-		}
 	}
 	
 	.display-5 {
@@ -27,7 +17,7 @@
 		margin: 0 0 $spacer;
 		
 		a {
-			font-weight: $font-weight-medium;
+			font-weight: $font-weight-bold;
 			
 			.remixicon {
 				opacity: .5;
