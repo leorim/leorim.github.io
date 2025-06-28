@@ -9,5 +9,12 @@ footer {
 		justify-content: center;
 		text-align: center;
 		color: $gray-500;
+		
+		> small {
+			min-height: var(--#{$prefix}header-footer-min-height);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 }
