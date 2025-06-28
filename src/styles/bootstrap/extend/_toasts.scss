@@ -1,15 +1,31 @@
-$toast-max-width:                   420px;
-$toast-padding-x:                   $spacer;
-$toast-padding-y:                   $spacer;
-$toast-background-color:            $window-bg;
-$toast-border-width:                $window-border-width;
-$toast-border-color:                $window-border-color;
-$toast-border-radius:               $window-border-radius;
-$toast-box-shadow:                  $widow-box-shadow;
+$toast-max-width:        420px;
+$toast-font-size:        $font-size-base;
+$toast-padding-x:        $spacer;
+$toast-padding-y:        $spacer;
+$toast-background-color: $window-bg;
+$toast-border-width:     $window-border-width;
+$toast-border-color:     $window-border-color;
+$toast-border-radius:    $window-border-radius;
+$toast-box-shadow:       $widow-box-shadow;
 
 @import "bootstrap/scss/toasts";
 
 .toast {
+	font-weight: $font-weight-medium;
 	backdrop-filter: $widow-backdrop-filter;
 	@include windowShine();
+}
+
+.toast-icon {
+	padding: $spacer * .25;
+	display: flex;
+	border-radius: $border-radius-pill;
+	background: rgba(var(--#{$prefix}white-rgb), .3)
+}
+
+@include color-mode(dark) {
+	
+	.toast-icon {
+		background: rgba(var(--#{$prefix}white-rgb), .1)
+	}
 }

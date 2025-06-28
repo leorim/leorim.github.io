@@ -63,7 +63,7 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 			<CSSTransition
 				in={show}
 				timeout={250}
-				classNames="dropdown-menu"
+				classNames="fade-drop"
 				unmountOnExit
 				nodeRef={dropdownMenuRef}
 			>

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useCopyToClipboard } from 'usehooks-ts';
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-import { Button, Stack, Toast, ToastContainer } from 'react-bootstrap';
+import { Button, Fade, Stack, Toast, ToastContainer } from 'react-bootstrap';
 import {
     RiFileCopyLine,
-    RiCheckboxCircleLine,
-    RiErrorWarningLine
-} from '@remixicon/react'
+    RiCheckLine,
+    RiCloseLine
+} from '@remixicon/react';
 
 enum ButtonStates {
     initial = 'Copy email',
@@ -103,7 +103,7 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
                             }}
                         >
                             {buttonState === ButtonStates.copied ? (
-                                <RiCheckboxCircleLine />
+                                <RiCheckLine />
                             ) : (
                                 <RiFileCopyLine />
                             )}
@@ -118,16 +118,18 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
                 className="p-3"
             >
                 <Toast
-                    show={buttonState !== ButtonStates.initial} 
+                    show={buttonState !== ButtonStates.initial}
                     onExited={() => setToast(null)}
                 >
                     <Toast.Body>
                         <Stack direction="horizontal" gap={2}>
-                            {toast?.variant === 'success' ? (
-                                <RiCheckboxCircleLine className="text-success" />
-                            ) : (
-                                <RiErrorWarningLine className="text-danger" />
-                            )}
+                            <div className={`toast-icon text-${toast?.variant}`}>
+                                {toast?.variant === 'success' ? (
+                                    <RiCheckLine />
+                                ) : (
+                                    <RiCloseLine />
+                                )}
+                            </div>
                             <span>{toast?.message}</span>
                         </Stack>
                     </Toast.Body>
