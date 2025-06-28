@@ -9,8 +9,6 @@ import {
 	RiSunLine
 } from '@remixicon/react'
 
-const THEME_STORAGE_KEY = 'theme-preference';
-
 type Theme = 'light' | 'dark' | 'auto';
 
 const ThemeSwitcher: React.FunctionComponent = () => {
@@ -23,24 +21,22 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 		if (newTheme === 'auto') {
 			t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'black';
 		}
-		document.body.setAttribute('data-bs-theme', t);
+		document.documentElement.setAttribute('data-bs-theme', t);
 	};
 	
 	useEffect(() => {
-		const storedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+		const storedTheme = localStorage.getItem(window.THEME_STORAGE_KEY) as Theme | null;
 		
 		if (!!storedTheme) {
 			setTheme(storedTheme);
 			applyTheme(storedTheme);
-		} else {
-			applyTheme('auto');
 		}
 	}, []);
 	
 	const toggleTheme = (selectedTheme: Theme) => {
 		setTheme(selectedTheme);
 		applyTheme(selectedTheme);
-		localStorage.setItem(THEME_STORAGE_KEY, selectedTheme);
+		localStorage.setItem(window.THEME_STORAGE_KEY, selectedTheme);
 	};
 	
 	const renderIcon = (theme: Theme) => {
@@ -54,9 +50,12 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 	};
 	
 	return (
-		<Dropdown show={show} onToggle={() => setShow(!show)}>
-			<Dropdown.Toggle bsPrefix="lr" variant="link" className="px-0">
-				<Stack direction="horizontal" gap={1}>
+		<Dropdown
+			show={show}
+			onToggle={() => setShow(!show)}
+		>
+			<Dropdown.Toggle bsPrefix="btn-dropdown">
+				<Stack direction="horizontal">
 					{renderIcon(theme)}
 					<RiArrowDropDownLine />
 				</Stack>
@@ -69,6 +68,7 @@ const ThemeSwitcher: React.FunctionComponent = () => {
 				nodeRef={dropdownMenuRef}
 			>
 				<Dropdown.Menu
+					align="end"
 					className="show"
 					ref={dropdownMenuRef}
 					popperConfig={{

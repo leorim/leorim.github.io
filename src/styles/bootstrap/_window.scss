@@ -4,7 +4,7 @@ $window-border-radius:       var(--#{$prefix}border-radius-lg);
 $window-border-width:        0;
 $window-inner-border-radius: calc(#{$window-border-radius} - #{$window-border-width});
 $widow-box-shadow:           var(--#{$prefix}window-box-shadow);
-$widow-backdrop-filter:      blur(3px);
+$widow-backdrop-filter:      blur(8px);
 
 :root {
 	--#{$prefix}window-bg:           hsl(from var(--#{$prefix}gray-400) h s l / .6);

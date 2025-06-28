@@ -1,8 +1,10 @@
 ---
 import { Col, Container, Row, Stack } from 'react-bootstrap';
 import { RiExternalLinkLine } from '@remixicon/react'
+import FaviconTheme from '../components/FaviconTheme.astro';
+import Fonts from '../components/Fonts.astro';
+import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import '../styles/styles.scss';
 
 const { title } = Astro.props;
@@ -12,23 +14,23 @@ const { name } = Astro.props;
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <meta name="apple-mobile-web-app-title" content="Rimmer.co" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#201e24" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <FaviconTheme />
+        <Fonts />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <script is:inline>
+            window.THEME_STORAGE_KEY = 'theme-preference';
+            (() => {
+                const storedTheme = localStorage.getItem(window.THEME_STORAGE_KEY);
+                const getPreferredTheme = () => {
+                    if (storedTheme) return storedTheme;
+                    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                };
+                document.documentElement.setAttribute('data-bs-theme', getPreferredTheme());
+            })();
+        </script>
     </head>
-    <style>
-    </style>
     <body>
         <Header />
         <main>
@@ -36,6 +38,6 @@ const { name } = Astro.props;
                 <slot />
             </Container>
         </main>
-    <Footer name={name} />
+        <Footer name={name} />
     </body>
 </html>

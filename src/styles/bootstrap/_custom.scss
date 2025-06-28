@@ -58,7 +58,7 @@ $link-decoration:  none;
 
 // Grid columns
 
-$grid-gutter-width:       $spacer * 2;
+$grid-gutter-width:       $spacer * 3;
 
 
 // Components
@@ -76,6 +76,7 @@ $transition-time:             .25s;
 // Typography
 
 $font-family-sans-serif: "Inter", sans-serif;
+$font-family-mono:       "Roboto Mono", monospace;
 
 $font-size-base:         1rem;
 $font-size-lg:           $font-size-base * 1.25;
@@ -94,7 +95,7 @@ $font-weight-normal:     $font-weight-regular;
 $font-weight-bolder:     $font-weight-extrabold;
 
 $display-font-weight:    $font-weight-black;
-$display-line-height:    calc(80/48);
+$display-line-height:    1.2;
 
 $lead-font-size:         $font-size-base * 1.5;
 $lead-font-weight:       $font-weight-light;

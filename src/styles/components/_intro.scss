@@ -1,17 +1,35 @@
 .intro {
 	
+	@include media-breakpoint-up(xl) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.name {
+		font-family: $font-family-mono;
+		letter-spacing: $spacer * .25;
+		text-transform: uppercase;
+		color: var(--#{$prefix}link-color);
+		margin-bottom: $spacer;
+		
+		&::after {
+			content: ".";
+			background: currentcolor;
+		}
+	}
+	
 	.display-5 {
-		margin: 0;
+		margin: 0 0 $spacer;
 	}
 	
 	.lead {
-		margin: 0 0 $spacer * 2;
+		margin: 0 0 $spacer;
 		
 		a {
-			font-weight: $font-weight-semibold;
+			font-weight: $font-weight-medium;
 			
 			.remixicon {
-				color: var(--#{$prefix}border-color);
+				opacity: .5;
 			}
 		}
 	}

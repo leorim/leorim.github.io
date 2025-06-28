@@ -1,6 +1,15 @@
 @import "bootstrap";
 @import "components";
 
+:root {
+    --#{$prefix}header-footer-padding-y: #{$spacer};
+    --#{$prefix}header-footer-min-height: #{$spacer * 2};
+    
+    @include media-breakpoint-up(md) {
+        --#{$prefix}header-footer-padding-y: #{$spacer * 2};
+    }
+}
+
 body {
     font-optical-sizing: auto;
     min-height: 100vh;
@@ -10,7 +19,6 @@ body {
     justify-content: center;
     
     > header {
-        padding: $spacer 0;
         flex: 0 0 auto;
         width: 100%;
     }
