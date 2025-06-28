@@ -45,6 +45,24 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
                 });
             })
     }
+    
+    const handleEnter = () => {
+        if (initialRef.current) {
+            setContentWidth(initialRef.current.offsetWidth);
+        }
+    };
+    
+    const handleEntered = () => {
+        if (initialRef.current && buttonState === ButtonStates.initial) {
+            setContentWidth(undefined);
+        }
+    };
+    
+    const handleExit = () => {
+        if (initialRef.current) {
+            setContentWidth(initialRef.current.offsetWidth);
+        }
+    };
 
     useEffect(() => {
         if (buttonState !== ButtonStates.initial) {
@@ -55,12 +73,6 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
             return () => clearTimeout(timer);
         }
     }, [buttonState]);
-    
-    useEffect(() => {
-        if (initialRef.current) {
-            setContentWidth(initialRef.current.offsetWidth);
-        }
-    }, []);
 
     return (
         <React.Fragment>
@@ -77,6 +89,9 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
                         timeout={250}
                         classNames="slide"
                         nodeRef={currentRef}
+                        onEnter={handleEnter}
+                        onEntered={handleEntered}
+                        onExit={handleExit}
                     >
                         <Stack
                             ref={currentRef}
