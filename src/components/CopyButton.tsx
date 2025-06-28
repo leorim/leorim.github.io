@@ -7,6 +7,7 @@ import {
     RiCheckLine,
     RiCloseLine
 } from '@remixicon/react';
+import FadeDrop from './FadeDrop';
 
 enum ButtonStates {
     initial = 'Copy email',
@@ -24,6 +25,7 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
     const [buttonState, setButtonState] = useState<ButtonStates>(ButtonStates.initial);
     const [toast, setToast] = useState<ToastProps|null>(null);
     const [contentWidth, setContentWidth] = useState<number | undefined>(undefined);
+    const nodeRef = useRef<HTMLDivElement>(null);
     const initialRef = useRef<HTMLDivElement>(null);
     const copiedRef = useRef<HTMLDivElement>(null);
     const currentRef = buttonState === ButtonStates.copied ? copiedRef : initialRef;
@@ -118,7 +120,8 @@ const CopyButton: React.FunctionComponent<Button.ButtonProps> = ({ ...props }) =
                 className="p-3"
             >
                 <Toast
-                    show={buttonState !== ButtonStates.initial}
+                    transition={FadeDrop}
+                    show={buttonState !== ButtonStates.initial} 
                     onExited={() => setToast(null)}
                 >
                     <Toast.Body>
