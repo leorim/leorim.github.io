@@ -1,5 +1,5 @@
 $btn-padding-y:         $spacer * .5;
-$btn-padding-x:         $spacer;
+$btn-padding-x:         $spacer * .75;;
 
 $btn-padding-y-lg:      $spacer;
 $btn-padding-x-lg:      $spacer * 2;
@@ -19,7 +19,7 @@ $btn-box-shadow:        var(--#{$prefix}btn-shadow-one-spread) rgba($black, var(
 $btn-focus-box-shadow:  $btn-box-shadow;
 $btn-active-box-shadow: $btn-box-shadow;
 
-$btn-border-radius:               var(--#{$prefix}border-radius-pill);
+$btn-border-radius:               var(--#{$prefix}border-radius);
 $btn-border-radius-lg:            var(--#{$prefix}border-radius-lg);
 
 $btn-transition-timing-function:  $transition-timing-function; 
@@ -39,9 +39,3 @@ $btn-active-border-shade-amount:  0%;
 $btn-active-border-tint-amount:   0%;
 
 @import "bootstrap/scss/buttons";
-
-@property --rotation {
-	syntax: "<angle>";
-	inherits: false;
-	initial-value: 191deg;
-}

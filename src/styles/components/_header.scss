@@ -1,9 +1,14 @@
 header {
 	--#{$prefix}header-padding-y: #{$spacer};
 	
+	@include media-breakpoint-up(md) {
+		--#{$prefix}header-padding-y: #{$spacer * 2};
+	}
+	
 	> .container {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		padding-top: var(--#{$prefix}header-padding-y);
 		padding-bottom: var(--#{$prefix}header-padding-y);
 	}
@@ -12,4 +17,19 @@ header {
 		height: $spacer * 2;
 		width: $spacer * 2;
 	}
+}
+
+.btn-dropdown {
+	@extend .btn-link;
+	--#{$prefix}btn-hover-bg-opacity: .2;
+	--#{$prefix}btn-hover-bg: hsl(from var(--#{$prefix}window-border-color) h s l / var(--#{$prefix}btn-hover-bg-opacity));
+	--#{$prefix}btn-active-bg: var(--#{$prefix}btn-hover-bg);
+	padding-right: $btn-padding-x - ($spacer * .25);
+}
+
+@include color-mode(dark) {
+	
+	.btn-dropdown {
+		--#{$prefix}btn-hover-bg-opacity: .6;
+	}	
 }
