@@ -19,9 +19,18 @@ const { name } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <script is:inline>
+            window.THEME_STORAGE_KEY = 'theme-preference';
+            (() => {
+                const storedTheme = localStorage.getItem(window.THEME_STORAGE_KEY);
+                const getPreferredTheme = () => {
+                    if (storedTheme) return storedTheme;
+                    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                };
+                document.documentElement.setAttribute('data-bs-theme', getPreferredTheme());
+            })();
+        </script>
     </head>
-    <style>
-    </style>
     <body>
         <Header />
         <main>
