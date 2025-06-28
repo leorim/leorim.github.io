@@ -1,5 +1,10 @@
 .intro {
 	
+	@include media-breakpoint-up(xl) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
 	.display-5 {
 		margin: 0 0 $spacer;
 	}
