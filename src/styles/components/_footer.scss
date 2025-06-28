@@ -9,5 +9,10 @@ footer {
 		justify-content: center;
 		text-align: center;
 		color: $gray-500;
+		
+		@include media-breakpoint-up(md) {
+			justify-content: flex-start;
+			text-align: start;
+		}
 	}
 }
