@@ -3,6 +3,7 @@ import { Col, Row, Stack } from 'react-bootstrap';
 import { RiExternalLinkLine } from '@remixicon/react'
 import Base from '../layouts/Base.astro';
 import CopyButton from '../components/CopyButton';
+import Mono from '../components/Mono';
 
 const name: string = "Leo Rimmer";
 const role: string = "Senior product designer and front-end developer";
@@ -30,12 +31,7 @@ const current = {
         >
             <Stack gap={3}>
                 <div>
-                    <Stack
-                        direction="horizontal"
-                        className="name"
-                    >
-                        {name}
-                    </Stack>
+                    <Mono>{name}</Mono>
                     <h1 class="display-5">{heading}</h1>
                     <p class="lead">
                         {subHeading}

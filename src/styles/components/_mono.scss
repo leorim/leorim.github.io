@@ -1,0 +1,12 @@
+.mono {
+	font-family: $font-family-mono;
+	letter-spacing: $spacer * .25;
+	text-transform: uppercase;
+	color: var(--#{$prefix}link-color);
+	
+	&::after {
+		content: ".";
+		background: currentcolor;
+		opacity: .5;
+	}
+}

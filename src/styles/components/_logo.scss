@@ -1,0 +1,12 @@
+.logo {
+	
+	.btn-link {
+		padding: 0;
+		
+		svg {
+			height: $spacer * 2;
+			width: $spacer * 2;
+			fill: currentcolor;
+		}
+	}
+}
