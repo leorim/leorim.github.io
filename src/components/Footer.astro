@@ -2,11 +2,15 @@
 import Credits from '../components/Credits';
 import { Container } from 'react-bootstrap';
 const { name } = Astro.props;
-const year = new Date().getFullYear();
 ---
 
 <footer>
     <Container>
-        <small>&copy;{year} {name}</small>
+        <small>&copy;<span id="year"></span> {name}</small>
     </Container>
 </footer>
+
+<script>
+    document.getElementById('year')!.textContent =
+        new Date().getFullYear().toString();
+</script>
